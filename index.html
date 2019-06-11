@@ -24,8 +24,6 @@
 
   <script>
     function BinarySearch(element, arr) {  // element-искомый элемент, arr-упорядоченный массив, в котором ищем.
-      arraySort(arr);
-
       if(typeof(element) === 'string') {
         element = Number(element);
       } 
@@ -33,16 +31,12 @@
       var i = 0, j = arr.length-1, k;   
       while (i <= j) {
          k = Math.floor((i+j)/2);
-         if (element === arr[k]) return arr[k];
+         if (element === arr[k]) return k;
          else if (element < arr[k]) j = k-1;
          else i = k+1;
       }
                                      // На выходе индекс искомого элемента.
       return -1;                     // Если искомого элемента нет в массиве, то -1.
-    }
-
-    function arraySort(arr) {
-      arr.sort(( a, b ) =>  a - b); 
     }
   </script>
 
